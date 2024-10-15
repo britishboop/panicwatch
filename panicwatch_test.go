@@ -13,8 +13,8 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/britishboop/panicwatch"
 	goerrors "github.com/go-errors/errors"
-	"github.com/grongor/panicwatch"
 	"github.com/stretchr/testify/require"
 )
 

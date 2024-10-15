@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/grongor/panicwatch"
+	"github.com/britishboop/panicwatch"
 )
 
 func main() {

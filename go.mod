@@ -1,4 +1,4 @@
-module github.com/grongor/panicwatch
+module github.com/britishboop/panicwatch
 
 go 1.19
 
