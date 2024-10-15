@@ -86,22 +86,22 @@ func Start(config Config) error {
 
 	exePath, err := os.Executable()
 	if err != nil {
-		return err
+		return fmt.Errorf("get executable: %w", err)
 	}
 
 	stderrR, stderrW, err := os.Pipe()
 	if err != nil {
-		return err
+		return fmt.Errorf("pipe: %w", err)
 	}
 
 	originalStderrFd, err := dup(int(os.Stderr.Fd()))
 	if err != nil {
-		return err
+		return fmt.Errorf("dup: %w", err)
 	}
 
 	err = redirectStderr(stderrW)
 	if err != nil {
-		return err
+		return fmt.Errorf("redirect std err: %w", err)
 	}
 
 	originalStderr := os.NewFile(uintptr(originalStderrFd), os.Stderr.Name())
@@ -113,7 +113,7 @@ func Start(config Config) error {
 
 	err = cmd.Start()
 	if err != nil {
-		return err
+		return fmt.Errorf("cmd start: %w", err)
 	}
 
 	go func() {
